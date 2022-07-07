@@ -2,7 +2,7 @@
 {
     public class PersonaCLS
     {
-        public int iidpersona { get; set; }
+        public int Iidpersona { get; set; }
         public string nombrecompleto { get; set; }
         public string correo { get; set; }
     }
