@@ -1,8 +1,9 @@
-﻿var nombreCacheEstatico="cacheEstatico1"
+﻿var nombreCacheEstatico = "cacheEstatico1"
+var nombreDinamico = "cacheDinamico1"
 
 var archivosEstaticos = [
     "/css/menu.css", "/MiProgressApp.styles.css", "/lib/jquery/dist/jquery.min.js",
-    "/lib/bootstrap/dist/js/bootstrap.bundle.min.js", "/js/menu.js", "/"
+    "/lib/bootstrap/dist/js/bootstrap.bundle.min.js", "/js/menu.js", "/", "/js/generic.js", "/img/loading.gif", "/Persona/listarPersonas"
 ]
 
 self.addEventListener("install", event => {
@@ -26,7 +27,10 @@ self.addEventListener("fetch", event => {
         if (res) return res
         else {
             return fetch(event.request).then(response => {
-                return response
+                caches.open(nombreDinamico).then(cache => {
+                    cache.put(event.request,response)
+                })
+                return response.clone;
             })
         }
     }).catch(err => {
