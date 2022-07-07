@@ -21,7 +21,7 @@ namespace MiProgressApp.Controllers
                          select new PersonaCLS
                          {
                              iidpersona = persona.Iidpersona,
-                             nombrecompleto = persona.Nombre + " " + persona.Appaterno,
+                             nombrecompleto = persona.Nombre+" "+persona.Appaterno+" "+persona.Apmaterno,
                              correo = persona.Correo
                          }).ToList();
 
