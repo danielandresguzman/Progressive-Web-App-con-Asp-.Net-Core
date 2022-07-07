@@ -24,7 +24,7 @@ namespace MiProgressApp.Controllers
                          where persona.Bhabilitado == 1
                          select new PersonaCLS
                          {
-                             iidpersona = persona.Iidpersona,
+                             Iidpersona = persona.Iidpersona,
                              nombrecompleto = persona.Nombre+" "+persona.Appaterno+" "+persona.Apmaterno,
                              correo = persona.Correo
                          }).ToList();
@@ -37,7 +37,7 @@ namespace MiProgressApp.Controllers
                              && (persona.Nombre).Contains(nombreCompleto)
                              select new PersonaCLS
                              {
-                                 iidpersona = persona.Iidpersona,
+                                 Iidpersona = persona.Iidpersona,
                                  nombrecompleto = persona.Nombre + " " + persona.Appaterno + " " + persona.Apmaterno,
                                  correo = persona.Correo
                              }).ToList();

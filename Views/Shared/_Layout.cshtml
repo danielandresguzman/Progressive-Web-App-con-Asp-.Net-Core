@@ -21,13 +21,10 @@
 			    <span class="overlay" id="overlay"></span>
 			    <div class="menu" id="menu">
 				    <ul class="menu-block">
-					    <li class="menu-item"><a class="menu-link" href="#">Persona</a></li>
-					    <li class="menu-item"><a class="menu-link" href="#">Pagina 2</a></li>
-					    <li class="menu-item"><a class="menu-link" href="#">Pagina 3</a></li>
-					    <li class="menu-item"><a class="menu-link" href="#">Pagina 4</a></li>
-					    <li class="menu-item"><a class="menu-link" href="#">Pagina 5</a></li>
-					    <li class="menu-item"><a class="menu-link" href="#">Pagina 6</a></li>
-				    </ul>
+					    <li class="menu-item"><a class="menu-link" href="/">Persona</a></li>
+					    <li class="menu-item"><a class="menu-link" href="/TipoLibro/Index">Tipo Libro</a></li>
+					    <li class="menu-item"><a class="menu-link" href="/noexiste/Index">Pagina 3</a></li>
+					</ul>
 			    </div>
 		    </nav>
 	    </div>
@@ -50,6 +47,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/menu.js"></script>
+    <script src="~/js/sweetalert.js"></script>
     <script src="~/js/generic.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
     <script>
