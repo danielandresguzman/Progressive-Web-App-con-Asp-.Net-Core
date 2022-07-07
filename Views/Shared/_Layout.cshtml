@@ -12,7 +12,7 @@
     <header class="header">
 	    <div class="container">
 		    <nav class="navbar">
-			    <b id="opcionConexion"><p class="text-success" >Conectado a Internet</p></b>
+			    <b id="opcionConexion"> <p class="text-success">Conectado a Internet</p> </b>
 			    <button type="button" class="burger" id="burger">
 				    <span class="burger-line"></span>
 				    <span class="burger-line"></span>
@@ -37,6 +37,7 @@
             @RenderBody()
         </main>
     </div>
+
      <input type="hidden" id="hdfOculto" value="@Url.Content("~")" />
    
 
@@ -45,33 +46,35 @@
              background-repeat:no-repeat;background-position:center;z-index:2000">
         
          </div>
- 
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/menu.js" ></script>
+    <script src="~/js/menu.js"></script>
     <script src="~/js/generic.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
     <script>
 
-            window.ononline = function() {
-                document.getElementById("opcionConexion").innerHTML="<p class='text-success' >Conectado a Internet</p>"
-            }
-            window.onoffline = function() {
-                document.getElementById("opcionConexion").innerHTML="<p class='text-danger' >Sin Conexión a la red</p>"
-            }
-
-        //para llamar al worker
-        if (navigator.serviceWorker){
-            console.log("permite service worker")
-            navigator.serviceWorker.register("/service-worker.js").then(res => {
-                console.log("se registro el service worker") }
-                ).catch(err => {
-                console.log("no se registro le service worker")
-            })
-        }else{
-            console.log("NO permite service worker")
+        window.ononline=function(){
+            document.getElementById("opcionConexion").innerHTML="<p class='text-success'>Conectado a Internet</p>"
         }
 
+        window.onoffline=function(){
+              document.getElementById("opcionConexion").innerHTML="<p class='text-danger'>Sin Conexion a la Red</p>"
+        }
+        
+        if(navigator.serviceWorker){
+            console.log("Permite Service Worker")
+            navigator.serviceWorker.register("/service-worker.js").then(res=>{
+                console.log("Se registro el Service Worker")
+            }).catch(err=>{
+                console.log("No se registro el Service Worker")
+            })
+        }else{
+            console.log("No Permite Service Worker")
+        }
+    
     </script>
+
+
 </body>
 </html>

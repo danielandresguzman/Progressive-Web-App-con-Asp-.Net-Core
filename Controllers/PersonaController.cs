@@ -11,11 +11,15 @@ namespace MiProgressApp.Controllers
             return View();
         }
 
-        public List<PersonaCLS> listarPersonas()
+        public List<PersonaCLS> listarPersonas(string nombreCompleto)
         {
             List<PersonaCLS> lista = new List<PersonaCLS>();
             using(db_a89ad8_bdbibliotecaContext bd = new db_a89ad8_bdbibliotecaContext())
             {
+                if (nombreCompleto == null)
+                {
+
+                
                 lista = (from persona in bd.Personas
                          where persona.Bhabilitado == 1
                          select new PersonaCLS
@@ -24,6 +28,20 @@ namespace MiProgressApp.Controllers
                              nombrecompleto = persona.Nombre+" "+persona.Appaterno+" "+persona.Apmaterno,
                              correo = persona.Correo
                          }).ToList();
+
+                }
+                else
+                {
+                    lista = (from persona in bd.Personas
+                             where persona.Bhabilitado == 1
+                             && (persona.Nombre).Contains(nombreCompleto)
+                             select new PersonaCLS
+                             {
+                                 iidpersona = persona.Iidpersona,
+                                 nombrecompleto = persona.Nombre + " " + persona.Appaterno + " " + persona.Apmaterno,
+                                 correo = persona.Correo
+                             }).ToList();
+                }
 
                 return lista;
             }
