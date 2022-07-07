@@ -2,7 +2,7 @@
 
 var archivosEstaticos = [
     "/css/menu.css", "/MiProgressApp.styles.css", "/lib/jquery/dist/jquery.min.js",
-    "/lib/bootstrap/dist/js/bootstrap.bundle.min.js", "/js/menu.js", "/"
+    "/lib/bootstrap/dist/js/bootstrap.bundle.min.js", "/js/menu.js", "/", "/js/generic.js","/img/loading.gif"
 ]
 
 self.addEventListener("install", event => {
